@@ -37,7 +37,7 @@ for i in range(20):
 print("My formatted number is {:10d}".format(5))
 
 
-# new
+# indices with formatting
 
 
 

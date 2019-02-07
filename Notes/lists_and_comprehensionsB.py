@@ -62,4 +62,5 @@ del my_list[4]
 print(my_list)
 
 
+# finding the index of an item.
 

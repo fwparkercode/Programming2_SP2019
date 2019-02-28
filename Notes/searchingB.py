@@ -50,9 +50,51 @@ with open('data/villains.txt') as f:
 
 # To use the data, read it into a list
 with open('data/villains.txt') as f:
-    villain_list = [x.strip()s for x in f]
+    villain_list = [x.strip().upper() for x in f]
 
 print(villain_list)
+
+# LINEAR SEARCH
+key = "LEE THE MERCILESS"  # what we are looking for
+i = 0  # index of the loop
+
+while i < len(villain_list) and key != villain_list[i]:
+    i += 1
+
+if i < len(villain_list):
+    print("Found", key, "at position", i)
+else:
+    print("Could not find", key)
+
+# BINARY SEARCH
+villain_list.sort()
+print(villain_list)
+
+key = "RENARD THE TORTURER"
+lower_bound  = 0
+upper_bound = len(villain_list) - 1
+found = False
+loops = 0
+
+# loop until we find it
+while lower_bound <= upper_bound and not found:
+    loops += 1
+    middle_pos = (upper_bound + lower_bound) // 2
+    if villain_list[middle_pos] < key:
+        lower_bound = middle_pos + 1
+    elif villain_list[middle_pos] > key:
+        upper_bound = middle_pos - 1
+    else:
+        found = True
+
+if found:
+    print("Found", key, "at position", middle_pos, "after", loops, "loops")
+else:
+    print("Could not find", key, "after", loops, "loops")
+
+
+
+
 
 
 

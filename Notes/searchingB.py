@@ -94,6 +94,23 @@ else:
 
 
 
+# Read in Alice
+import re
+
+
+# This function takes in a line of text and returns
+# a list of words in the line.
+def split_line(line):
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+
+villains = open("data/villains.txt")
+
+for villain in villains:
+    # print(villain.strip())
+    words = split_line(villain.strip())
+    #print(words)
+    for word in words:
+        print(word)
 
 
 

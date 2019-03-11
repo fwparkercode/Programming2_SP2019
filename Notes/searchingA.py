@@ -58,31 +58,31 @@ print(villains)
 
 
 # Linear Search
-key = "EDITHA THE FESTERING"  # what we are looking for
-i = 0  # index of my search
 
-while i < (len(villains) - 1) and key != villains[i]:
-    i += 1
+def linear_search(key, dictionary):
+    i = 0  # index of my search
 
-if i < len(villains):
-    print("Found", key, "at position", i)
-else:
-    print("Could not find", key)
+    while i < (len(dictionary) - 1) and key != dictionary[i]:
+        i += 1
 
+    if i < len(dictionary):
+        return True  # Found it!
+    else:
+        return False # Did not find
+
+
+linear_search("EDITHA THE FESTERING", villains)
 
 
 # BINARY SEARCH
-villains.sort()
 
 key = "THEODORA THE WICKED"
 lower_bound = 0
 upper_bound = len(villains)
 found = False
-loops = 0
 
 # loop until we find it (or we finish the list)
 while lower_bound <= upper_bound and not found:
-    loops += 1
     middle_pos = (upper_bound + lower_bound) // 2
     if villains[middle_pos] < key:
         lower_bound = middle_pos + 1
@@ -92,7 +92,7 @@ while lower_bound <= upper_bound and not found:
         found = True
 
 if found:
-    print(key, "was found at position", middle_pos, "after", loops, "loops")
+    print(key, "was found at position", middle_pos)
 else:
     print(key, "was not found after", loops, "loops")
 
@@ -112,16 +112,47 @@ import re
 def split_line(line):
     return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
 
+def binary_search(key, dictionary):
+    lower_bound = 0
+    upper_bound = len(dictionary)
+    found = False
 
-line = split_line(text)
-print(line)
+    # loop until we find it (or we finish the list)
+    while lower_bound <= upper_bound and not found:
+        middle_pos = (upper_bound + lower_bound) // 2
+        if villains[middle_pos] < key:
+            lower_bound = middle_pos + 1
+        elif villains[middle_pos] > key:
+            upper_bound = middle_pos - 1
+        else:
+            found = True
 
+    return found
 
-file = open("data/villains.txt")
+file = open("data/AliceThroughTheLookingGlass.txt")
+line_number = 0
 
 for line in file:
     line = line.strip().upper()
+    line_number += 1
     words = split_line(line)
     for word in words:
-        print(word)
+        if word.upper() == "ALICE":
+            print("You found Alice on line number", line_number)
+
+
+print(ord("A"))
+print(chr(65))
+alphabet = "AAAAABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+new_list = list(alphabet)
+print(new_list)
+new_set = set(new_list)
+print(new_set)
+new_list = list(new_set)
+print(sorted(new_list))
+
+
+
 

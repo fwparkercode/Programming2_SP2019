@@ -4,9 +4,11 @@ my_turtle = turtle.Turtle()  # create a turtle object
 my_screen = turtle.Screen()  # create a screen object
 
 my_turtle.width(4)
-my_turtle.speed(0)
+my_turtle.speed(0)  # zero is as fast as it can go
 my_turtle.shape("turtle")
 
+
+'''
 my_turtle.penup()
 my_turtle.goto(0, 0)  # sends it to a point without turning
 my_turtle.goto(100, 100)
@@ -37,8 +39,8 @@ distance = 10
 for i in range(100):
     my_turtle.forward(distance + i)
     my_turtle.left(15)
+'''
 
-my_screen.clear()
 
 def recursive_rect(line_width, width, height, depth):
     if depth > 0:
@@ -54,9 +56,34 @@ def recursive_rect(line_width, width, height, depth):
             my_turtle.right(90)
         recursive_rect(line_width * 1.1, width * 1.1, height * 1.1, depth - 1)
 
-recursive_rect(1, 20, 50, 40)
+def march_mathness(x, y, height, depth):
+    # top of the C bracket
+    my_turtle.penup()
+    my_turtle.goto(x, y)
+    my_turtle.pendown()
+    my_turtle.setheading(90)
+    my_turtle.forward(height)
+    my_turtle.right(90)
+    my_turtle.forward(100)
+    pos1 = my_turtle.pos()
 
+    # bottom of the C bracket
+    my_turtle.penup()
+    my_turtle.goto(x, y)
+    my_turtle.pendown()
+    my_turtle.setheading(270)
+    my_turtle.forward(height)
+    my_turtle.left(90)
+    my_turtle.forward(100)
+    pos2 = my_turtle.pos()
 
+    if depth > 0:
+        # make it recursive
+        march_mathness(pos1[0], pos1[1], height / 2, depth - 1)
+        march_mathness(pos2[0], pos2[1], height / 2, depth - 1)
+
+#recursive_rect(1, 20, 50, 40)
+march_mathness(-270, 0, 160, 5)
 
 
 

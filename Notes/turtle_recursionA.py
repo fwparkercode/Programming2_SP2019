@@ -109,8 +109,8 @@ def bracket_recursion(x, y, size, depth):
 
 
 #rect(200, 100)
-#rect_recursive(20, 40, 50, line_width=1)
-bracket_recursion(-250, 0, 150, 5)
+rect_recursive(20, 40, 50, line_width=1)
+#bracket_recursion(-250, 0, 150, 5)
 
 
 my_screen.exitonclick()

@@ -17,4 +17,8 @@ plt.ylabel('y label (units)', color='green', fontsize=10)
 plt.title('Example Plot', color='blue', fontsize=20)
 plt.axis([10, 20, 100, 500]) # xmin, xmax, ymin, ymax
 
-plt.show()
+#plt.show()
+
+
+
+

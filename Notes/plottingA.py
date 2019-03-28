@@ -69,12 +69,12 @@ for library in month_data:
 
 print(all_lib_months)
 
-plt.bar(month_numbers, all_lib_months, color='red')
+plt.bar(month_numbers, all_lib_months, color='red', label="My Label!!!")
 plt.xticks(month_numbers, month_names, rotation=90)
 plt.xlabel("Months")
 plt.ylabel("Visitors")
 plt.title("Chicago Libary Visitors by Month (2018)")
-
+plt.legend()
 
 plt.show()
 

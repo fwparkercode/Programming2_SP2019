@@ -1,0 +1,12 @@
+
+p {
+  background-color: lightblue;
+}
+
+#p1 {
+    background-color: lightgreen;
+}
+
+p.redText {
+    color: red;
+}

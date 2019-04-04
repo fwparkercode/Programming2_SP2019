@@ -44,7 +44,7 @@ plt.title("Homicides vs. Gun Ownership by Country")
 m, b = np.polyfit(firearms_100, homicide_100k, 1)
 
 fit_x = [0, 100]
-fit_y = [b, 100 * m]
+fit_y = [b, 100 * m + b]
 
 plt.annotate("My Text", xy=(40, 2))
 

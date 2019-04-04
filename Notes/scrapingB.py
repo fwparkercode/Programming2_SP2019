@@ -6,12 +6,12 @@ import requests
 url = "http://quotes.toscrape.com/"  # uniform resource locator
 
 page = requests.get(url)
-print(page)
+#print(page)
 #print(page.text)
 
 soup = BeautifulSoup(page.text, "html.parser")
 print(soup.prettify())
-
+'''
 # find data in my soup object
 # by tagname
 title = soup.findAll("title")  # returns a list of all tags <title>
@@ -58,3 +58,4 @@ print(len(quotes), len(authors))
 for i in range(len(quotes)):
     print(quotes[i].text)
     print("\t-", authors[i].text)
+'''

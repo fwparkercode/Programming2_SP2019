@@ -70,7 +70,7 @@ for i in range(len(quote_list)):
 # I also added code to download pictures from instagram
 
 #launch url
-url = "https://www.instagram.com/instagram/"
+url = "https://www.instagram.com/oprah/"
 
 from selenium import webdriver
 

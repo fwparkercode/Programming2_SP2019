@@ -51,7 +51,7 @@ plt.annotate("My Text", xy=(40, 2))
 print(len(firearms_100), len(homicide_100k), len(countries))
 
 for i in range(len(countries_label)):
-    plt.annotate(countries_label[i], xy=(firearms_100[i], homicide_100k[i]))
+    plt.annotate(countries_label[i], xy=(firearms_100[i], homicide_100k[i]), arrowprops={width:10})
 
 
 plt.plot(fit_x, fit_y, color="red")

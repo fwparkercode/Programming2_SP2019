@@ -11,7 +11,7 @@ page = requests.get(url)
 
 soup = BeautifulSoup(page.text, "html.parser")
 print(soup.prettify())
-'''
+
 # find data in my soup object
 # by tagname
 title = soup.findAll("title")  # returns a list of all tags <title>
@@ -31,16 +31,6 @@ for quote in quotes:
     print(quote.text)
 
 
-# by strings
-einstein = soup.findAll(string="Albert Einstein")
-
-print(einstein)
-for e in einstein:
-    print(e)
-
-print("\n" * 10)
-
-
 # combine any of the above
 quotes = soup.findAll("span", class_="text")
 
@@ -56,6 +46,12 @@ for author in authors:
 print(len(quotes), len(authors))
 
 for i in range(len(quotes)):
+    print()
     print(quotes[i].text)
     print("\t-", authors[i].text)
-'''
+
+
+# target this ---->  <a href="/author/Marilyn-Monroe">(about)</a>
+
+links = soup.findAll("a")
+print(links)

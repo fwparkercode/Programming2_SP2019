@@ -9,7 +9,11 @@ class HypotenuseApp(App):
 class HypotenuseLayout(BoxLayout):
     # all of my functions will be here
     def calculate(self):
-        print("It worked!!!")
+        if self.leg1.text == "":
+            return
+        else:
+            hyp = (float(self.leg1.text) ** 2 + float(self.leg2.text) ** 2) ** 0.5
+            self.answer.text = str(hyp)
 
 if __name__ == "__main__":
     app = HypotenuseApp()

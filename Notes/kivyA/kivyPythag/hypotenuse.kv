@@ -1,0 +1,47 @@
+<HypotenuseLayout>:
+    orientation: "vertical"
+    id: calculator
+    Label:
+        text: "Hypotenuse Calculator"
+        size_hint_y: None
+        font_size: 70
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        Label:
+            text: "Leg 1"
+            size_hint_x: 1
+            font_size: 30
+        TextInput:
+            size_hint_x: 3
+            font_size: 30
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        Label:
+            text: "Leg 2"
+            size_hint_x: 1
+            font_size: 30
+        TextInput:
+            size_hint_x: 3
+            font_size: 30
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+        Button:
+            size_hint_x: 2
+            font_size: 30
+            text: "Calculate"
+            on_press: calculator.calculate()
+        Label:
+            text: "Hypotenuse:"
+            font_size: 30
+        Label:
+            text: "0"
+            font_size: 30
+
+
+

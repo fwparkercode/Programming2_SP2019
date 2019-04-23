@@ -1,0 +1,82 @@
+<CustBoxLayout@BoxLayout>:
+    size_hint_y: 1
+
+<CustButton@Button>:
+    font_size: 30
+    background_normal: "button.png"
+    background_color: 0.85, 0.85, 0.85, 1
+    color: 0,0,0,1 # text color (foreground)
+    canvas:
+        Color:
+            rgba: (0,0,0,1)
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+
+<OrangeButton@CustButton>:
+    background_color: 1, 0.5, 0, 1
+    color: 1,1,1,1
+
+
+<CalculatorLayout>:
+    display: display
+    orientation: "vertical"
+
+    TextInput:
+        id: display
+        font_size: 35
+        background_normal: ""
+        background_color: 0.5,0.5,0.5,1
+
+    CustBoxLayout:
+        CustButton:
+            text: "AC"
+        CustButton:
+            text: "("
+        CustButton:
+            text: ")"
+        OrangeButton:
+            text: "/"
+
+    CustBoxLayout:
+        CustButton:
+            text: "7"
+        CustButton:
+            text: "8"
+        CustButton:
+            text: "9"
+        OrangeButton:
+            text: "*"
+
+    CustBoxLayout:
+        CustButton:
+            text: "4"
+        CustButton:
+            text: "5"
+        CustButton:
+            text: "6"
+        OrangeButton:
+            text: "-"
+    CustBoxLayout:
+        CustButton:
+            text: "1"
+            on_press: display.text += self.text
+        CustButton:
+            text: "2"
+            on_press: display.text += self.text
+        CustButton:
+            text: "3"
+            on_press: display.text += self.text
+        OrangeButton:
+            text: "+"
+            on_press: display.text += self.text
+
+    CustBoxLayout:
+        CustButton:
+            text: "0"
+            size_hint_x: 2
+        CustButton:
+            text: "."
+        OrangeButton:
+            text: "="
+            on_press: root.calculate(display.text)

@@ -17,13 +17,13 @@ class TempLayout(BoxLayout):
             return
         else:
             f = float(self.temp.text) * 9 / 5 + 32
-            self.answer.text = str(f)
+            self.answer.text = "{:.2f}".format(f)
     def c_conversion(self):
         if self.temp.text == "":
             return
         else:
             c = (float(self.temp.text) - 32) * 5 / 9
-            self.answer.text = str(c)
+            self.answer.text = "{:.2f}".format(c)
 
 if __name__ == "__main__":
     app = TempApp()

@@ -1,0 +1,99 @@
+<CustLabel@Label>:
+    color: 0,0,0,1
+    size_hint_y: None
+
+
+<DemoLayout>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+    switch_text: switch_text
+    slider: slider
+    slider_value: slider_value
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_x: 0.5
+        CustLabel:
+            id: switch_text
+            text: str(my_switch.active)  # True or False
+        Switch:
+            id: my_switch
+            on_active: root.turn_on_lights(self.active)
+
+    BoxLayout:
+        orientation: "horizontal"
+        CustLabel:
+            size_hint_x: 0.5
+            id: slider_value
+            text: "{:.2f}".format(slider.value)
+        Slider:
+            id: slider
+            min: 0
+            max: 1
+            step: 0.01  # goes by 1's
+            value: 0  # starts at value of zero
+            slider_value: root.color_slide(self.value)
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint_y: None
+
+        CustLabel:
+            text: spin.text
+        Spinner:
+            id: spin
+            text: "First"
+            values: ["First", "Second", "Third", "Fourth"]
+            on_text: root.spinner_clicked(self.text)
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        CustLabel:
+            text: "I am not a robot"
+        CheckBox:
+            on_active: root.checked(self.active)
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        CustLabel:
+            text: "Choose your favorite"
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        CustLabel:
+            text: "Ice Cream"
+        CheckBox:
+            group: "dessert"
+
+        CustLabel:
+            text: "Cake"
+        CheckBox:
+            group: "dessert"
+
+        CustLabel:
+            text: "Pie"
+        CheckBox:
+            group: "dessert"
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        TabbedPanel:
+            do_default_tab: False
+            background_normal: ""
+            TabbedPanelItem:
+                text: "1st Tab"
+                Label:
+                    text: "Content of my 1st Tab"
+            TabbedPanelItem:
+                text: "2nd Tab"
+                Label:
+                    text: "Content of my 2nd Tab"
+            TabbedPanelItem:
+                text: "3rd Tab"
+                Label:
+                    text: "Content of my 3rd Tab"

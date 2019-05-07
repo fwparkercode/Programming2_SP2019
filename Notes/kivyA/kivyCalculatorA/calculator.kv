@@ -1,0 +1,59 @@
+<CustBoxLayout@BoxLayout>:
+    orientation: "horizontal"
+    spacing: 0.5
+
+
+<CustButton@Button>:
+    background_normal: ""
+    background_color: (0.85,0.85,0.85,1)
+    color: 0,0,0,1
+
+<OrangeButton@CustButton>:
+    background_color: 1, 0.5, 0, 1
+    color: 1,1,1,1
+
+
+<CalculatorLayout>:
+    spacing: 0.5
+    orientation: "vertical"
+    display: display
+    TextInput:
+        id: display
+        text: ""
+        background_normal: ""
+        background_color: (0.5,0.5,0.5,1)
+        font_size: 30
+        foreground_color: 1,1,1,1
+    CustBoxLayout:
+        CustButton:
+            text: "AC"
+        CustButton:
+            text: "("
+        CustButton:
+            text: ")"
+        OrangeButton:
+            text: "/"
+    CustBoxLayout:
+        CustButton:
+            text: "1"
+            on_press: display.text += self.text
+        CustButton:
+            text: "2"
+            on_press: display.text += self.text
+        CustButton:
+            text: "3"
+            on_press: display.text += self.text
+        OrangeButton:
+            text: "+"
+            on_press: display.text += self.text
+    CustBoxLayout:
+        CustButton:
+            text: "0"
+            size_hint_x: 2
+            on_press: display.text += self.text
+        CustButton:
+            text: "."
+            on_press: display.text += self.text
+        OrangeButton:
+            text: "="
+            on_press: root.calculate()

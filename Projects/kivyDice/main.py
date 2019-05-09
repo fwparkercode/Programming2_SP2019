@@ -15,14 +15,14 @@ from kivy.uix.button import Button
 Window.size = [400, 600]
 Window.clearcolor = [0,0,0,0]
 
-class GreedApp(App):
+class YachtApp(App):
     def build(self):
-        return GreedLayout()
+        return YachtLayout()
 
 class ScoreCard(ListItemButton):
     pass
 
-class GreedLayout(BoxLayout):
+class YachtLayout(BoxLayout):
     rolls = 3
     current_hand = [0,0,0,0,0]
     gutter = 20
@@ -82,7 +82,9 @@ class GreedLayout(BoxLayout):
         self.update_board()
         if self.used.count(False) == 0:
             self.roll_button.disabled = True
+            self.roll_button.color = [0,0,0,1]
             self.message_text.text = "Final Score: " + str(self.total_score)
+
 
     def new_roll(self):
         if self.used.count(False) > 0:
@@ -302,5 +304,5 @@ class Die(Widget):
 
 
 if __name__ == "__main__":
-    demo = GreedApp()
+    demo = YachtApp()
     demo.run()

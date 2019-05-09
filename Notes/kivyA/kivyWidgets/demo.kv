@@ -2,12 +2,14 @@
     color: 0,0,0,1
     background_normal: ""
 
-<CustPopup@Popup>:
-    size_hint_x: 1
-    size_hint_y: 1
-    auto_dismiss: False
+<CustPopup>:
+    size_hint_x: 0.5
+    size_hint_y: None
+    auto_dismiss: True
     Button:
-        text: "Close"
+        size_hint_y: None
+        height: 40
+        text: "CLOSE ME"
         on_press: root.dismiss()
 
 <DemoLayout>:
@@ -77,6 +79,8 @@
     BoxLayout:
         orientation: "horizontal"
         # ADD POPUP HERE
+        Button:
+            on_press: root.popup()
 
     BoxLayout:
         orientation: "horizontal"

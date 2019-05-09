@@ -1,0 +1,335 @@
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+
+
+
+<Score@Label>:
+    size_hint_x: None
+    size_hint_y: None
+    height: "40dp"
+    width: 50
+    halign: "left"
+    text_size: self.size
+
+<Die>:
+    die_source: "images/black.png"
+    box_alpha: 1
+    size_hint_y: None
+    size_hint_x: None
+    size: [50,50]
+
+
+    canvas:
+        Color:
+            rgba: 1,1,self.box_alpha,1
+        Rectangle:
+            source: self.die_source
+            size: self.size
+            pos: self.pos
+
+
+
+<SelectButton@Button>:
+    background_normal: ""
+    background_color: 0,0,0,1
+    disabled: False
+<ScoreLabel@Label>:
+
+
+<GreedLayout>:
+    orientation: "vertical"
+    id: layout
+
+    roll_button: roll_button
+    rolls_text: rolls_text
+    score_text: score_text
+    message_text: message
+
+    button_ones:button_ones
+    button_twos: button_twos
+    button_threes:button_threes
+    button_fours:button_fours
+    button_fives:button_fives
+    button_sixes: button_sixes
+    button_chance: button_chance
+    button_3kind: button_3kind
+    button_4kind: button_4kind
+    button_full: button_full
+    button_small: button_small
+    button_large: button_large
+    button_5kind: button_5kind
+
+    hand_ones:hand_ones
+    hand_twos: hand_twos
+    hand_threes:hand_threes
+    hand_fours:hand_fours
+    hand_fives:hand_fives
+    hand_sixes: hand_sixes
+    hand_chance: hand_chance
+    hand_3kind: hand_3kind
+    hand_4kind: hand_4kind
+    hand_full: hand_full
+    hand_small: hand_small
+    hand_large: hand_large
+    hand_5kind: hand_5kind
+
+    score_ones:score_ones
+    score_twos: score_twos
+    score_threes:score_threes
+    score_fours:score_fours
+    score_fives:score_fives
+    score_sixes: score_sixes
+    score_chance: score_chance
+    score_3kind: score_3kind
+    score_4kind: score_4kind
+    score_full: score_full
+    score_small: score_small
+    score_large: score_large
+    score_5kind: score_5kind
+
+    die1: die1
+    die2: die2
+    die3: die3
+    die4: die4
+    die5: die5
+    GridLayout:
+        size_hint_y: 0.8
+        cols: 3
+        rows: 14
+        spacing: 3
+        ScoreLabel:
+            size_hint_x:2
+            text: "Make Selection"
+        ScoreLabel:
+            text: "Score"
+        ScoreLabel:
+            text: "This Roll"
+
+
+        SelectButton:
+            text: "Ones"
+            id: button_ones
+            on_press: root.enter_score(0)
+            on_release: root.new_roll()
+        ScoreLabel:
+            id: score_ones
+            text: str(root.score[0])
+        ScoreLabel:
+            id: hand_ones
+            text: str(root.hand_scores[0])
+
+        SelectButton:
+            text: "Twos"
+            id: button_twos
+            on_press: root.enter_score(1)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[1])
+            id: score_twos
+
+        ScoreLabel:
+            text: str(root.hand_scores[1])
+            id: hand_twos
+
+        SelectButton:
+            text: "Threes"
+            id: button_threes
+            on_press: root.enter_score(2)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[2])
+            id: score_threes
+        ScoreLabel:
+            text: str(root.hand_scores[2])
+            id: hand_threes
+
+        SelectButton:
+            text: "Fours"
+            id: button_fours
+            on_press: root.enter_score(3)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[3])
+            id: score_fours
+        ScoreLabel:
+            text: str(root.hand_scores[3])
+            id: hand_fours
+
+        SelectButton:
+            text: "Fives"
+            id: button_fives
+            on_press: root.enter_score(4)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[4])
+            id: score_fives
+        ScoreLabel:
+            text: str(root.hand_scores[4])
+            id: hand_fives
+
+        SelectButton:
+            text: "Sixes"
+            id: button_sixes
+            on_press: root.enter_score(5)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[5])
+            id: score_sixes
+        ScoreLabel:
+            text: str(root.hand_scores[5])
+            id: hand_sixes
+
+        SelectButton:
+            text: "Chance"
+            id: button_chance
+            on_press: root.enter_score(6)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[6])
+            id: score_chance
+        ScoreLabel:
+            text: str(root.hand_scores[6])
+            id: hand_chance
+
+        SelectButton:
+            text: "3 of a Kind"
+            id: button_3kind
+            on_press: root.enter_score(7)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[7])
+            id: score_3kind
+        ScoreLabel:
+            text: str(root.hand_scores[7])
+            id: hand_3kind
+
+        SelectButton:
+            text: "4 of a Kind"
+            id: button_4kind
+            on_press: root.enter_score(8)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[8])
+            id: score_4kind
+        ScoreLabel:
+            text: str(root.hand_scores[8])
+            id: hand_4kind
+
+        SelectButton:
+            text: "Full House"
+            id: button_full
+            on_press: root.enter_score(9)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[9])
+            id: score_full
+        ScoreLabel:
+            text: str(root.hand_scores[9])
+            id: hand_full
+
+
+        SelectButton:
+            text: "Small Straight"
+            id: button_small
+            on_press: root.enter_score(10)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[10])
+            id: score_small
+        ScoreLabel:
+            text: str(root.hand_scores[10])
+            id: hand_small
+
+        SelectButton:
+            text: "Large Straight"
+            id: button_large
+            on_press: root.enter_score(11)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[11])
+            id: score_large
+        ScoreLabel:
+            text: str(root.hand_scores[11])
+            id: hand_large
+
+        SelectButton:
+            text: "5 of a Kind"
+            id: button_5kind
+            on_press: root.enter_score(12)
+            on_release: root.new_roll()
+        ScoreLabel:
+            text: str(root.score[12])
+            id: score_5kind
+        ScoreLabel:
+            text: str(root.hand_scores[12])
+            id: hand_5kind
+
+    BoxLayout:
+        size_hint_y: 0.15
+        valign: "top"
+        Label:
+            id: rolls_text
+            font_size: 20
+            size_hint_y: 1
+            height: "100dp"
+            text: "Rolls Remaining: " + str(root.rolls)
+        Label:
+            id: score_text
+            height: "40dp"
+            font_size: 20
+            text: "Your Score: " + str(root.total_score)
+
+    BoxLayout:
+        size_hint_y: 0.3
+        Widget:
+            Die:
+
+                layout:layout
+                number: 1
+                id: die1
+                pos: [root.center_x - self.width / 2 - 140, 150]
+            Die:
+                layout:layout
+                number: 2
+                id: die2
+                pos: [root.center_x - self.width / 2 - 70, 150]
+
+            Die:
+                layout:layout
+                number: 3
+                id: die3
+                pos: [root.center_x - self.width / 2, 150]
+            Die:
+                layout:layout
+                number: 4
+                id: die4
+                pos: [root.center_x - self.width / 2 + 70, 150]
+            Die:
+                layout:layout
+                number: 5
+                id: die5
+                pos: [root.center_x - self.width / 2 + 140, 150]
+
+    BoxLayout:
+        size_hint_y: 0.2
+        Label:
+            id: message
+            font_size: 40
+            text: "Good Luck!"
+    BoxLayout:
+        size_hint_y: 0.2
+        Button:
+            id: roll_button
+            background_normal: ""
+            background_color: [0.5,0.5,1,1]
+            font_size: 40
+            text: "Roll Dice!"
+            on_press: if(root.rolls > 0): die1.roll()
+            on_press: if(root.rolls > 0):die2.roll()
+            on_press: if(root.rolls > 0):die3.roll()
+            on_press: if(root.rolls > 0):die4.roll()
+            on_press: if(root.rolls > 0):die5.roll()
+            on_press: root.message_text.text = ""
+
+            on_release: root.score_hand()
+

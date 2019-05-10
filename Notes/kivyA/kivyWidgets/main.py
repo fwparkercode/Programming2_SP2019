@@ -38,6 +38,9 @@ class DemoLayout(BoxLayout):
     def spinner_clicked(self, value):
         print(value)
 
+    def font_change(self, font):
+        self.check_text.font_name = font
+
 
 
 

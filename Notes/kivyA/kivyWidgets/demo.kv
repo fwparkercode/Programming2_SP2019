@@ -1,6 +1,8 @@
 <CustLabel@Label>:
     color: 0,0,0,1
     background_normal: ""
+    font_size: 30
+    #font_name: "cmtt10.ttf"
 
 <CustPopup>:
     size_hint_x: 0.5
@@ -17,15 +19,16 @@
     id: demo
     switch_text: switch_text
     slider_text: slider_text
+    check_text: check_text
     BoxLayout:
         orientation: "horizontal"
         CustLabel:
             id: switch_text
             text: str(switch.active)
         Switch:
-            active: True
+            active: False
             id: switch
-            on_active: demo.switch_on(self, self.active)
+            on_active: demo.font_change("cmtt10.ttf")
 
     BoxLayout:
         orientation: "horizontal"
@@ -43,6 +46,7 @@
     BoxLayout:
         orientation: "horizontal"
         CustLabel:
+            #font_name: "cmtt10.ttf"
             id: check_text
             text: "I am not a robot"
         CheckBox:

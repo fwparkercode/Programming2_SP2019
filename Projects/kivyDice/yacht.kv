@@ -6,7 +6,7 @@
 <Score@Label>:
     size_hint_x: None
     size_hint_y: None
-    height: "40dp"
+    #height: "40dp"
     width: 50
     halign: "left"
     text_size: self.size
@@ -29,10 +29,14 @@
 
 
 
+
+
 <SelectButton@Button>:
     background_normal: ""
     background_color: 0,0,0,1
     disabled: False
+    font_size: "15dp"
+
 <ScoreLabel@Label>:
 
 
@@ -93,17 +97,21 @@
     die4: die4
     die5: die5
     GridLayout:
-        size_hint_y: 0.8
+        size_hint_y: 1
         cols: 3
         rows: 14
         spacing: 3
         ScoreLabel:
             size_hint_x:2
             text: "Make Selection"
+            bold: True
         ScoreLabel:
             text: "Score"
+            bold: True
+
         ScoreLabel:
             text: "This Roll"
+            bold: True
 
 
         SelectButton:
@@ -269,46 +277,63 @@
         valign: "top"
         Label:
             id: rolls_text
-            font_size: 20
-            size_hint_y: 1
-            height: "100dp"
+            halign: "center"
+            size: self.texture_size
+            text_size: self.size
+            bold: True
+            #size_hint_y: 1
             text: "Rolls Remaining: " + str(root.rolls)
         Label:
             id: score_text
-            height: "40dp"
-            font_size: 20
+            bold: True
+            halign: "center"
+            size: self.texture_size
+            text_size: self.size
             text: "Your Score: " + str(root.total_score)
 
     BoxLayout:
         size_hint_y: 0.3
+
         Widget:
-            Die:
+        Die:
 
-                layout:layout
-                number: 1
-                id: die1
-                pos: [root.center_x - self.width / 2 - 140, 150]
-            Die:
-                layout:layout
-                number: 2
-                id: die2
-                pos: [root.center_x - self.width / 2 - 70, 150]
+            layout:layout
+            number: 1
+            id: die1
+            pos_hint_x: 1
+            #pos: [root.center_x - self.width / 2 - 140, 150]
+        Widget:
+        Die:
+            layout:layout
+            number: 2
+            id: die2
+            pos_hint_x: 1
+            #pos: [root.center_x - self.width / 2 - 70, 150]
 
-            Die:
-                layout:layout
-                number: 3
-                id: die3
-                pos: [root.center_x - self.width / 2, 150]
-            Die:
-                layout:layout
-                number: 4
-                id: die4
-                pos: [root.center_x - self.width / 2 + 70, 150]
-            Die:
-                layout:layout
-                number: 5
-                id: die5
-                pos: [root.center_x - self.width / 2 + 140, 150]
+        Widget:
+        Die:
+            layout:layout
+            number: 3
+            id: die3
+            pos_hint_x: 1
+            pos: [root.center_x - self.width / 2, 150]
+
+        Widget:
+        Die:
+            layout:layout
+            number: 4
+            id: die4
+            pos: [root.center_x - self.width / 2 + 70, 150]
+
+
+        Widget:
+        Die:
+            layout:layout
+            number: 5
+            id: die5
+            pos: [root.center_x - self.width / 2 + 140, 150]
+        Widget: # these are just for spacing
+
 
     BoxLayout:
         size_hint_y: 0.2
@@ -321,9 +346,11 @@
         Button:
             id: roll_button
             background_normal: ""
-            background_color: [0.5,0.5,1,1]
+            background_color: [0,0,0.5,1]
             font_size: 40
             text: "Roll Dice!"
+            font_name: "cmsy10.ttf"
+
             on_press: if(root.rolls > 0): die1.roll()
             on_press: if(root.rolls > 0):die2.roll()
             on_press: if(root.rolls > 0):die3.roll()

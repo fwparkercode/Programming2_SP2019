@@ -1,0 +1,25 @@
+<ClockRect>:
+    canvas:
+        Color:
+            rgba: [1, 0, 0, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<AniRect>:
+    canvas:
+        Color:
+            rgba: [0, 1, 0, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<AniLayout>:
+    ani: ani
+    ClockRect:
+        pos: 100, 100
+        size: [50,50]
+    AniRect:
+        id: ani
+        pos: 100,100
+        size: [50,50]

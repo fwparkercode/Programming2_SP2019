@@ -1,5 +1,8 @@
 import random
+import time
+from kivy.clock import Clock
 
+from kivy.animation import Animation
 from kivy.app import App
 from kivy.graphics import Rectangle, Color
 from kivy.uix.boxlayout import BoxLayout
@@ -12,7 +15,7 @@ from kivy.uix.listview import ListView
 from kivy.uix.button import Button
 
 
-Window.size = [400, 600]
+Window.size = [320, 568]
 Window.clearcolor = [0,0,0,0]
 
 class YachtApp(App):
@@ -78,6 +81,8 @@ class YachtLayout(BoxLayout):
         if self.score[i] == 0 and self.used[i] == False:
             self.used[i] = True
             self.score[i] = self.hand_scores[i]
+            self.roll_button.text = "Roll Dice!"
+            self.roll_button.disabled = False
         self.update_total_score()
         self.update_board()
         if self.used.count(False) == 0:
@@ -136,6 +141,11 @@ class YachtLayout(BoxLayout):
             if self.rolls == 0:
                 self.rolls_text.color = [1,0,0,1]
                 self.rolls_text.text = "Rolls Remaining: " + str(self.rolls)
+                self.roll_button.text = ""
+                self.roll_button.disabled = True
+            else:
+                self.roll_button.text = "Roll Dice!"
+                self.roll_button.disabled = False
 
         self.hand_scores = []
         self.current_hand = [self.die1.value, self.die2.value, self.die3.value, self.die4.value, self.die5.value]
@@ -195,6 +205,14 @@ class YachtLayout(BoxLayout):
         for i in range(len(self.score_labels)):
             print("{0}:{1}".format(self.score_labels[i], self.hand_scores[i]))
 
+    def bonus_check(self):
+        total = 0
+        for i in range(6):
+            total += self.score[i]
+        if total >= 63:
+            return 35
+        return 0
+
     def chance_check(self):
         total = 0
         for i in range(6):
@@ -204,7 +222,7 @@ class YachtLayout(BoxLayout):
     def small_straight_check(self):
         small_straight1 = True  # 1,2,3,4
         small_straight2 = True  # 2,3,4,5
-        small_straight3 = False  # 3,4,5,6
+        small_straight3 = True  # 3,4,5,6
 
         # check for small_straight_1
         for i in range(4):
@@ -285,20 +303,47 @@ class Die(Widget):
     locked = ObjectProperty()
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        Clock.schedule_interval(self.update, 1/10)
         self.size = [50,50]
+        self.start_x, self.start_y = self.pos
+        self.animate_me = False
+        self.die_source_list = ["images/dieWhite" + str(x) + ".png" for x in range(1, 7)]
+
+
+    def update(self, *args):
+        if self.animate_me:
+            self.die_source = random.choice(self.die_source_list)
+
+    def stop_animation(self, widget, item):
+        self.animate_me = False
+        self.die_source = "images/dieWhite" + str(self.value) + ".png"
+
     def roll(self):
         roll = random.randrange(1, 7)
+        Animation.cancel_all(self)
+
+        anim = Animation(center_y=150, size=[50,50], duration=random.random()/2 + 0.5, t="out_bounce")
         if not self.locked:
+            size = random.randrange(60, 100)
+            self.size = [size,size]
+            self.center_y = 150
+            Animation.cancel_all(self)
+            self.animate_me = True
+            anim.start(self)
             self.value = roll
-            self.die_source = "images/dieWhite" + str(self.value) + ".png"
+
+            anim.bind(on_complete=self.stop_animation)
+
+
     def on_touch_down(self, touch):
         if self.collide_point(*touch.pos):
+
             if self.locked:
                 self.locked = False
                 self.box_alpha = 1
             else:
                 self.locked = True
-                self.box_alpha = 0
+                self.box_alpha = 0.5
 
 
 

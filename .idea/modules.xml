@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Programming2-Daniel/.idea/Programming2-Daniel.iml" filepath="$PROJECT_DIR$/../Programming2-Daniel/.idea/Programming2-Daniel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Programming2Jonah/.idea/Programming2Jonah.iml" filepath="$PROJECT_DIR$/../Programming2Jonah/.idea/Programming2Jonah.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Programming2Spring2019.iml" filepath="$PROJECT_DIR$/.idea/Programming2Spring2019.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Programming2_Alex/.idea/Programming2_Alex.iml" filepath="$PROJECT_DIR$/../Programming2_Alex/.idea/Programming2_Alex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Nicky_Portfolio/.idea/Programming2_SP19.iml" filepath="$PROJECT_DIR$/../Nicky_Portfolio/.idea/Programming2_SP19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Programming2_SP19_JoshS./.idea/Programming2_SP19_JoshS..iml" filepath="$PROJECT_DIR$/../Programming2_SP19_JoshS./.idea/Programming2_SP19_JoshS..iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Programming2_Tessa/.idea/Programming2_Tessa.iml" filepath="$PROJECT_DIR$/../Programming2_Tessa/.idea/Programming2_Tessa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ProgrammingII_SP19_Sammy_Kagan/.idea/ProgrammingII_SP19_Sammy_Kagan.iml" filepath="$PROJECT_DIR$/../ProgrammingII_SP19_Sammy_Kagan/.idea/ProgrammingII_SP19_Sammy_Kagan.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,62 @@
+<CustButton@Button>:
+    font_size: 40
+    background_normal: ""  # reset default background of button
+    canvas:
+        Color:
+            rgba: (0, 1, 0, 1)
+        Rectangle:
+            pos: self.x, self.y
+            size: self.width, self.height
+
+
+<AddLayout>:
+    id: calculator
+    _calculate: calculate
+    _answer: answer
+    _n1: n1
+    _n2: n2
+    size_hint_y: 1
+    Label:
+        text: "n1"
+        background_normal: ""
+        color: (1,1,0,1)
+        canvas:
+            Color:
+                rgba: 1, 1, 0, 1
+            Rectangle:
+                pos: self.x, self.y
+                size: self.width / 2, self.height
+            Color:
+                rgba: 0, 1, 1, 1
+            Rectangle:
+                pos: self.x + self.width/2, self.y
+                size: self.width / 2, self.height
+
+
+    TextInput:
+        id: n1
+        font_size: 20
+        multiline: False
+        input_filter: "int"
+        padding_x: 10
+        padding_y: 40
+
+    Label:
+        text: "n2"
+    TextInput:
+        id: n2
+        font_size: 20
+        input_filter: "int"
+
+    CustButton:
+        id: calculate
+        text: "Calculate"
+        font_size: 20
+        color: (1,1,1,1)
+        background_color: (1,0,0,1)
+        on_press: calculator.calculate()
+    Label:
+        id: answer
+        background_normal: ""
+        background_color: (1,1,1,1)
+        font_size: 20

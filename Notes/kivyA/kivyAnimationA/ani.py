@@ -45,7 +45,7 @@ class AniRect(Widget):
         super().__init__(**kwargs)
 
     def animated_move(self, x, y):
-        animation1 = Animation(center_x=x, center_y=y, d=1, t="out_elastic")
+        animation1 = Animation(center_x=x, center_y=y, d=1, t="out_bounce")
         Animation.cancel_all(self)
         animation1.start(self)
 

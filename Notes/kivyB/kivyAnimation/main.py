@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.clock import Clock
 from kivy.core.window import Window
+from kivy.animation import Animation
 
 Window.size = [400, 400]
 
@@ -31,8 +32,19 @@ class ClockRect(Widget):
 
 class AniRect(Widget):
     def move_ani(self, x, y):
-        self.center_x = x
-        self.center_y = y
+        #self.center_x = x
+        #self.center_y = y
+        Animation.cancel_all(self)
+        if self.width < 100:
+            new_width = self.width * 2
+        else:
+            new_width = 100
+        anim1 = Animation(center_x=x,
+                          center_y=y,
+                          width=new_width,
+                          duration=0.5,
+                          transition="out_bounce")
+        anim1.start(self)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,61 @@
+<Spacer@Widget>:
+    size_hint_x: 0.25
+
+<Card>:
+    size_hint_x: None
+    size_hint_y: None
+    image_file: "pic/black.png"
+    locked: False
+    lock_color: 1
+    size: [72,96]
+    canvas:
+        Color:
+            rgba: 1,1,self.lock_color,1
+
+        Rectangle:
+            source: self.image_file
+            size: self.size
+            pos: self.pos
+
+
+<CardTable>:
+    card0:card0
+    card1:card1
+    card2:card2
+    card3:card3
+    card4:card4
+    win_text: ""
+    orientation: "vertical"
+    BoxLayout:
+        Label:
+            font_size: 40
+            text: root.win_text
+    BoxLayout:
+        Spacer:
+        Card:
+            id: card0
+
+        Spacer:
+        Card:
+            id: card1
+
+        Spacer:
+        Card:
+            id: card2
+
+        Spacer:
+        Card:
+            id: card3
+
+        Spacer:
+        Card:
+            id: card4
+        Spacer:
+
+    BoxLayout:
+        size_hint_y: 0.1
+        Button:
+            text: "Deal"
+            on_press: root.deal_hand()
+
+

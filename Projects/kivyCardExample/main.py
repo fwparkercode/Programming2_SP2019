@@ -1,5 +1,10 @@
-import random
+'''
+kivy card dealer
+starter code for card game projects in kivy
+'''
 
+
+import random
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
